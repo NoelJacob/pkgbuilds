@@ -1,0 +1,13 @@
+pkgbase = js-pm-dummy
+	pkgdesc = Dummy package providing npm, yarn and pnpm. No bun as bun is runtime and pm.
+	pkgver = 1.1
+	pkgrel = 1
+	arch = any
+	provides = npm
+	provides = yarn
+	provides = pnpm
+	conflicts = npm
+	conflicts = yarn
+	conflicts = pnpm
+
+pkgname = js-pm-dummy
