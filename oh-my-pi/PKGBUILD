@@ -2,7 +2,7 @@
 # Contributor: Bin Jin <bjin@protonmail.com>
 
 pkgname=oh-my-pi-git
-pkgver=16.0.1
+pkgver=v16.1.1.r0492fe5e
 pkgrel=1
 pkgdesc="AI coding agent for the terminal — hash-anchored edits, optimized tool harness, LSP, Python, browser, subagents, and more"
 arch=('x86_64')
@@ -14,7 +14,7 @@ depends=('gcc-libs' 'glibc' 'icu' 'zlib')
 makedepends=('bun' 'git' 'rustup')
 options=('!strip')
 source=(
-    "git+https://github.com/can1357/oh-my-pi.git"
+    "${pkgname}::git+https://github.com/can1357/oh-my-pi.git"
     "tree-sitter-haskell-gcc-no-strict-aliasing.patch"
     "skip-native-embed-for-aur.patch"
 )
