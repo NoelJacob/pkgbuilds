@@ -2,7 +2,7 @@
 # Contributor: Bin Jin <bjin@protonmail.com>
 
 pkgname=oh-my-pi-git
-pkgver=v16.1.1.r0492fe5e
+pkgver=v16.1.11.r424a0c84
 pkgrel=1
 pkgdesc="AI coding agent for the terminal — hash-anchored edits, optimized tool harness, LSP, Python, browser, subagents, and more"
 arch=('x86_64')
