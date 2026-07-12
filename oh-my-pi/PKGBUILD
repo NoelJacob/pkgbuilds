@@ -1,8 +1,8 @@
 # Maintainer: Noel Jacob <noeljacob 91 at gmail dot com>
 # Contributor: Bin Jin <bjin@protonmail.com>
 
-pkgname=oh-my-pi-git
-pkgver=v16.3.4.r0d0c1890
+pkgname=oh-my-pi
+pkgver=16.4.6
 pkgrel=1
 pkgdesc="AI coding agent for the terminal — hash-anchored edits, optimized tool harness, LSP, Python, browser, subagents, and more"
 arch=('x86_64')
