@@ -1,14 +1,14 @@
 # Maintainer: Bin Jin <bjin@protonmail.com>
 
 pkgname=oh-my-pi
-pkgver=16.4.6
+pkgver=17.1.5
 pkgrel=1
 pkgdesc="AI coding agent for the terminal — hash-anchored edits, optimized tool harness, LSP, Python, browser, subagents, and more"
 arch=('x86_64')
 url="https://github.com/can1357/oh-my-pi"
 license=('MIT')
 depends=('gcc-libs' 'glibc' 'icu' 'zlib')
-makedepends=('bun' 'git' 'rustup')
+makedepends=('bun' 'clang' 'cmake' 'git' 'rustup')
 options=('!strip')
 source=(
     "${pkgname}::git+https://github.com/can1357/oh-my-pi.git#tag=v${pkgver}"
@@ -16,7 +16,7 @@ source=(
     "skip-native-embed-for-aur.patch"
 )
 sha256sums=('SKIP'
-            'dde09e30999046c4edef7283114055121b91438edc2b71dbb059b6e5c2676ecd'
+            '5b004b65890244524e47e8d9d4cb4e363e32b9fdab5a42f6f065473bf7bf6068'
             'a81209715174b5413d5743ec4b461ffd71b1a1fc37bd4a7dcde23c27e35bc62f')
 
 prepare() {
@@ -30,6 +30,8 @@ prepare() {
 
 build() {
     cd "${srcdir}/${pkgname}"
+    export CARGO_HOME="${srcdir}/cargo-home"
+    export RUSTUP_HOME="${srcdir}/rustup-home"
 
     local _toolchain
 
@@ -44,7 +46,6 @@ build() {
         rustup toolchain install "${_toolchain}"
     fi
 
-    export PATH="${HOME}/.cargo/bin:${PATH}"
     export RUSTUP_TOOLCHAIN="${_toolchain}"
     unset CI CC CXX CFLAGS CXXFLAGS LDFLAGS RUSTFLAGS
 
