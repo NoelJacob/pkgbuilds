@@ -1,8 +1,8 @@
 # Maintainer: Noel Jacob <noeljacob 91 at gmail dot com>
 # Contributor: Bin Jin <bjin@protonmail.com>
 
-pkgname=oh-my-pi-git
-pkgver=v16.4.6.r020c0a2e
+pkgname=oh-my-pi
+pkgver=17.1.5
 pkgrel=1
 pkgdesc="AI coding agent for the terminal — hash-anchored edits, optimized tool harness, LSP, Python, browser, subagents, and more"
 arch=('x86_64')
@@ -11,7 +11,7 @@ license=('MIT')
 provides=('oh-my-pi' 'omp')
 conflicts=('oh-my-pi' 'omp')
 depends=('gcc-libs' 'glibc' 'icu' 'zlib')
-makedepends=('bun' 'git' 'rustup')
+makedepends=('bun' 'clang' 'cmake' 'git' 'rustup')
 options=('!strip')
 source=(
     "${pkgname}::git+https://github.com/can1357/oh-my-pi.git"
@@ -19,7 +19,7 @@ source=(
     "skip-native-embed-for-aur.patch"
 )
 sha256sums=('SKIP'
-            'dde09e30999046c4edef7283114055121b91438edc2b71dbb059b6e5c2676ecd'
+            '5b004b65890244524e47e8d9d4cb4e363e32b9fdab5a42f6f065473bf7bf6068'
             'a81209715174b5413d5743ec4b461ffd71b1a1fc37bd4a7dcde23c27e35bc62f')
 
 pkgver() {
@@ -40,6 +40,8 @@ prepare() {
 
 build() {
     cd "${srcdir}/${pkgname}"
+    export CARGO_HOME="${srcdir}/cargo-home"
+    export RUSTUP_HOME="${srcdir}/rustup-home"
 
     local _toolchain
 
@@ -54,7 +56,6 @@ build() {
         rustup toolchain install "${_toolchain}"
     fi
 
-    export PATH="${HOME}/.cargo/bin:${PATH}"
     export RUSTUP_TOOLCHAIN="${_toolchain}"
     unset CI CC CXX CFLAGS CXXFLAGS LDFLAGS RUSTFLAGS
 
