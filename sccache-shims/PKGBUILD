@@ -1,6 +1,6 @@
 # Maintainer: Noel Jacob <noeljacob91 at gmail dot com>
 pkgname=sccache-shims
-pkgver=2.0
+pkgver=2.1
 pkgrel=1
 pkgdesc="Create sccache shims for every detected C/C++/CUDA compiler"
 arch=('any')

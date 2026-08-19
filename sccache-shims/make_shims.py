@@ -11,7 +11,7 @@ def main():
     path = environ.get("PATH")
     regex = compile(
         r'^(?:(?:.*-)?(gnu-|musl-|eabi-|mingw-|android-))?'
-        r'(gcc|g\+\+|clang|clang\+\+|cc|c\+\+|nvcc|cl)'
+        r'(gcc|g\+\+|clang|clang\+\+|cc|c\+\+|cl|rustc)'
         r'(-[0-9.]+)?$'
     )
     if path is None:
