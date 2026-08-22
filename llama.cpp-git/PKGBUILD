@@ -1,8 +1,9 @@
-# Maintainer: Yakov Till <yakov.till@gmail.com>
+# Maintainer: Noel Jacob <noeljacob91 at gmail dot com>
+# Contributor: Yakov Till <yakov.till@gmail.com>
 # Contributor: robertfoster
 
 pkgname=llama.cpp-git
-pkgver=b9554.r2.19bba67c1f
+pkgver=b10502.r15.dc72703fc6
 pkgrel=1
 pkgdesc="Port of Facebook's LLaMA model in C/C++"
 arch=('armv7h' 'aarch64' 'x86_64')
@@ -59,13 +60,23 @@ build() {
     -DCMAKE_CXX_FLAGS="${CXXFLAGS} -ffile-prefix-map=${srcdir}/="
     -DBUILD_SHARED_LIBS=ON
     -DLLAMA_BUILD_TESTS=OFF
+    -DGGML_BUILD_EXAMPLES=OFF
     -DLLAMA_BUILD_NUMBER="${_build_number}"
     -DLLAMA_BUILD_COMMIT="${_commit_id}"
     -DLLAMA_OPENSSL=ON
     -DGGML_LTO=ON
     -DGGML_RPC=ON
     -DGGML_OPENMP=ON
-    -Wno-dev
+    -DGGML_CUDA=ON
+    -DGGML_CUDA_FA_ALL_QUANTS=ON
+    -DGGML_CUDA_COMPRESSION_MODE=speed
+    -DGGML_CUDA_GRAPHS=ON
+    -DGGML_LLAMAFILE=ON
+    -DGGML_BLAS=OFF
+    -DGGML_VULKAN=OFF
+    -DGGML_BACKEND_DL=OFF
+    -DCMAKE_CUDA_ARCHITECTURES=native
+    -Wno-author
   )
 
   # makepkg sets SOURCE_DATE_EPOCH which disables GGML_NATIVE_DEFAULT
