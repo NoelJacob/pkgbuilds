@@ -1,7 +1,7 @@
 # Maintainer: Bin Jin <bjin@protonmail.com>
 
 pkgname=oh-my-pi
-pkgver=18.1.14
+pkgver=v18.1.14.r0daf0799
 pkgrel=1
 pkgdesc="A coding agent with the IDE wired in"
 arch=('x86_64')
@@ -23,7 +23,7 @@ optdepends=(
 )
 options=('!lto' '!strip')
 source=(
-    "${pkgname}::git+https://github.com/can1357/oh-my-pi.git#tag=v${pkgver}"
+    "${pkgname}::git+https://github.com/can1357/oh-my-pi.git"
     "use-system-opus.patch"
     "skip-native-embed-for-aur.patch"
 )
@@ -31,6 +31,12 @@ sha256sums=('SKIP'
             'd2e7b386c2655e053199113216023d128d6f1e8866547d84dfe1647d376e07a9'
             'a81209715174b5413d5743ec4b461ffd71b1a1fc37bd4a7dcde23c27e35bc62f'
 )
+
+pkgver() {
+  cd "${srcdir}/${pkgname}"
+
+  git describe --tags --long --abbrev=7 | sed 's/\([^--]*\)-g/r\1/;s/-/./g'
+}
 
 _variants=('baseline:x86-64-v2' 'modern:x86-64-v3')
 _cargo_features=()
