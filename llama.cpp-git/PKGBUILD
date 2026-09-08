@@ -3,7 +3,7 @@
 # Contributor: robertfoster
 
 pkgname=llama.cpp-git
-pkgver=b10502.r15.dc72703fc6
+pkgver=main.b10291.7e30f3a.r0.7e30f3adb
 pkgrel=1
 pkgdesc="Port of Facebook's LLaMA model in C/C++"
 arch=('armv7h' 'aarch64' 'x86_64')
@@ -42,7 +42,7 @@ source=("${pkgname%%-git}::git+${url}"
 pkgver() {
   cd "${srcdir}/${pkgname%%-git}"
 
-  printf "%s" "$(git describe --long --tags | sed 's/\([^-]*-\)g/r\1/;s/-/./g')"
+  printf "%s" "$(git describe --always --long --tags | sed 's/\([^-]*-\)g/r\1/;s/-/./g')"
 }
 
 build() {
@@ -76,6 +76,7 @@ build() {
     -DGGML_VULKAN=OFF
     -DGGML_BACKEND_DL=OFF
     -DCMAKE_CUDA_ARCHITECTURES=native
+    -DGGML_RPC=OFF
     -Wno-author
   )
 
