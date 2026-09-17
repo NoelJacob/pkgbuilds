@@ -1,6 +1,6 @@
 # Maintainer: Bin Jin <bjin@protonmail.com>
 
-pkgname=oh-my-pi
+pkgname=oh-my-pi-git
 pkgver=18.2.3
 pkgrel=1
 pkgdesc="A coding agent with the IDE wired in"
@@ -23,7 +23,7 @@ optdepends=(
 )
 options=('!lto' '!strip')
 source=(
-    "${pkgname}::git+https://github.com/can1357/oh-my-pi.git#tag=v${pkgver}"
+    "${pkgname}::git+https://github.com/can1357/oh-my-pi.git"
     "skip-native-embed-for-aur.patch"
     "fix-bytecode-esm-format.patch"
 )
