@@ -3,7 +3,7 @@
 # Contributor: robertfoster
 
 pkgname=llama.cpp-git
-pkgver=main.b10291.7e30f3a.r0.7e30f3adb
+pkgver=b11011.r3.79bfc1d43a
 pkgrel=1
 pkgdesc="Port of Facebook's LLaMA model in C/C++"
 arch=('armv7h' 'aarch64' 'x86_64')
@@ -68,7 +68,7 @@ build() {
     -DGGML_RPC=ON
     -DGGML_OPENMP=ON
     -DGGML_CUDA=ON
-    -DGGML_CUDA_FA_ALL_QUANTS=ON
+    -DGGML_CUDA_FA_QUANTS=all
     -DGGML_CUDA_COMPRESSION_MODE=speed
     -DGGML_CUDA_GRAPHS=ON
     -DGGML_LLAMAFILE=ON
