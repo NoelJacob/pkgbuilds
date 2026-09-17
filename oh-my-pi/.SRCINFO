@@ -1,18 +1,19 @@
 pkgbase = oh-my-pi
 	pkgdesc = A coding agent with the IDE wired in
-	pkgver = 18.1.18
+	pkgver = 18.2.3
 	pkgrel = 1
 	url = https://omp.sh/
 	arch = x86_64
 	license = MIT
 	makedepends = bun
 	makedepends = cargo
+	makedepends = cmake
 	makedepends = git
+	makedepends = ninja
 	makedepends = clang
 	depends = gcc-libs
 	depends = glibc
 	depends = oniguruma
-	depends = opus
 	depends = pcre2
 	depends = zstd
 	depends = libpipewire
@@ -28,11 +29,11 @@ pkgbase = oh-my-pi
 	optdepends = xdg-desktop-portal-impl: compositor-specific backend for Wayland computer tool portals
 	options = !lto
 	options = !strip
-	source = oh-my-pi::git+https://github.com/can1357/oh-my-pi.git#tag=v18.1.18
-	source = use-system-opus.patch
+	source = oh-my-pi::git+https://github.com/can1357/oh-my-pi.git#tag=v18.2.3
 	source = skip-native-embed-for-aur.patch
+	source = fix-bytecode-esm-format.patch
 	sha256sums = SKIP
-	sha256sums = d2e7b386c2655e053199113216023d128d6f1e8866547d84dfe1647d376e07a9
-	sha256sums = a81209715174b5413d5743ec4b461ffd71b1a1fc37bd4a7dcde23c27e35bc62f
+	sha256sums = b2fe93ad7ef36869d660cc0ec9a0a0e7196370035efd86b32901101aff2920d1
+	sha256sums = 2f38e62c84e76e3c6d8d93e72d967a018de131cd1af242f543546015961bce76
 
 pkgname = oh-my-pi
