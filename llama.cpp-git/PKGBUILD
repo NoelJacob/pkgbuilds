@@ -3,11 +3,11 @@
 # Contributor: robertfoster
 
 pkgname=llama.cpp-git
-pkgver=b11011.r3.79bfc1d43a
+pkgver=prism.b10709.9a9394a.r21.3b19c377d
 pkgrel=1
 pkgdesc="Port of Facebook's LLaMA model in C/C++"
 arch=('armv7h' 'aarch64' 'x86_64')
-url="https://github.com/ggml-org/llama.cpp"
+url="https://github.com/PrismML-Eng/llama.cpp"
 license=("MIT")
 depends=(
   'gcc-libs'

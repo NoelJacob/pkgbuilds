@@ -1,7 +1,7 @@
 # Maintainer: Bin Jin <bjin@protonmail.com>
 
 pkgname=oh-my-pi-git
-pkgver=v18.2.3.r0a2d8306
+pkgver=v18.2.4.r6459ecc1
 pkgrel=1
 pkgdesc="A coding agent with the IDE wired in"
 arch=('x86_64')
@@ -23,7 +23,7 @@ optdepends=(
 )
 options=('!lto' '!strip')
 source=(
-    "${pkgname}::git+https://github.com/can1357/oh-my-pi.git"
+    "${pkgname}::git+https://github.com/tourlek/oh-my-pi.git#branch=fix/opencode-free-tier-403"
     "skip-native-embed-for-aur.patch"
     "fix-bytecode-esm-format.patch"
 )
