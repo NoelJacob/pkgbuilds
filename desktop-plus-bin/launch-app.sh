@@ -22,4 +22,4 @@ for line in "${lines[@]}"; do
     fi
 done
 
-exec /opt/desktop-plus/desktop-plus "${flags[@]}" "$@"
+exec /usr/bin/electron /usr/lib/desktop-plus/app "${flags[@]}" "$@"
