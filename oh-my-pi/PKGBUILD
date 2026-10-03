@@ -23,7 +23,7 @@ optdepends=(
 )
 options=('!lto' '!strip')
 source=(
-    "${pkgname}::git+https://github.com/tourlek/oh-my-pi.git#branch=fix/opencode-free-tier-403"
+    "${pkgname}::git+https://github.com/noeljacob/oh-my-pi.git"
     "skip-native-embed-for-aur.patch"
     "fix-bytecode-esm-format.patch"
 )
