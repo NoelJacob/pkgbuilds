@@ -1,7 +1,7 @@
 # Maintainer: Bin Jin <bjin@protonmail.com>
 
 pkgname=oh-my-pi-git
-pkgver=18.8.9
+pkgver=18.9.1.r4d773df5
 pkgrel=1
 pkgdesc="Coding agent with the IDE wired in"
 arch=('x86_64')
