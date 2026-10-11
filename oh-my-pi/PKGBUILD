@@ -1,6 +1,6 @@
 # Maintainer: Bin Jin <bjin@protonmail.com>
 
-pkgname=oh-my-pi
+pkgname=oh-my-pi-git
 pkgver=18.8.9
 pkgrel=1
 pkgdesc="Coding agent with the IDE wired in"
@@ -35,12 +35,12 @@ _opus_ver=0.4.0
 # Option/Result::map_or_default, first used in 18.7.0.
 _rust_min=1.98.0
 source=(
-    "${pkgname}-${pkgver}.tar.gz::https://github.com/can1357/oh-my-pi/archive/v${pkgver}.tar.gz"
+    "${pkgname}::git+https://github.com/noeljacob/oh-my-pi"
     "https://static.crates.io/crates/opus/opus-${_opus_ver}.crate"
     "skip-native-embed-for-aur.patch"
     "system-grammars-for-aur.patch"
 )
-sha256sums=('65407a5334e0decfe7d2725eede82b7d58e488afabec581712c31f131c061e9c'
+sha256sums=('SKIP'
             '33718946cc77d4032911d4efe03a66dbcbfbd2bb16c3da06aaeadcc637c32216'
             'd60c5282c2eebcde70c70b67d49b3fb8105c15d232d29851c68d858a9195acb6'
             '724888738f0e886693d8a6aa6cfd5f6dba9a98122353e4636a9ca946ae1fa9e7')
@@ -48,7 +48,7 @@ sha256sums=('65407a5334e0decfe7d2725eede82b7d58e488afabec581712c31f131c061e9c'
 pkgver() {
   cd "${srcdir}/${pkgname}"
 
-  git describe --tags --long --abbrev=7 | sed 's/\([^--]*\)-g/r\1/;s/-/./g'
+  git describe --tags --long --abbrev=7 | sed 's/^v//;s/\([^--]*\)-g/r\1/;s/-/./g'
 }
 
 _variants=('baseline:x86-64-v2' 'modern:x86-64-v3')
@@ -62,7 +62,7 @@ if (( _enable_wayland_screencast )); then
 fi
 
 prepare() {
-    cd "${srcdir}/${pkgname}-${pkgver}"
+    cd "${srcdir}/${pkgname}"
 
     # An older stable dies deep in the cargo build with E0658 "use of unstable
     # library feature", which reads like a packaging bug; fail up front.
@@ -165,7 +165,7 @@ _build_id() {
 }
 
 build() {
-    cd "${srcdir}/${pkgname}-${pkgver}"
+    cd "${srcdir}/${pkgname}"
 
     export RUSTUP_TOOLCHAIN=stable
 
@@ -208,7 +208,7 @@ _install_completions() {
 }
 
 package() {
-    cd "${srcdir}/${pkgname}-${pkgver}"
+    cd "${srcdir}/${pkgname}"
 
     install -Dm755 "packages/coding-agent/dist/omp" \
         "${pkgdir}/usr/lib/${pkgname}/omp"
